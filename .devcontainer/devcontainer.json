@@ -1,0 +1,16 @@
+{
+	"name": "ghc",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"HASKELL_VERSION": "9.4.8"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"haskell.haskell"
+			]
+		}
+	}
+}  

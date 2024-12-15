@@ -1,0 +1,45 @@
+cabal-version:       3.0
+name:                helium
+version:             0.1.0.0
+author:              Daniel Kröni
+maintainer:          daniel.kroeni@fhnw.ch
+build-type:          Simple
+
+
+common common-properties
+  default-language: Haskell2010
+  build-depends:
+    base >=4.17
+   ,scotty ==0.22
+   ,wai-extra 
+   ,directory 
+   ,transformers
+   ,text
+  ghc-options:
+    -Wall
+
+library
+  import:              common-properties
+  exposed-modules:     He.Html
+                      ,He.Web
+                      ,He.Data
+  build-depends:       
+  hs-source-dirs:      lib
+
+
+executable helium
+  import:              common-properties
+  main-is:             Main.hs
+  build-depends:       helium
+  hs-source-dirs:      app
+  ghc-options: -threaded -rtsopts
+
+test-suite test
+  import:              common-properties
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             HeliumTest.hs
+  other-modules:       SelfAssessment
+  build-depends:       tasty >= 1.3
+                     , tasty-hunit 
+                     , helium 

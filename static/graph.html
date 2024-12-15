@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Wiki Graph with Mermaid</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <h1>Simple Wiki Graph</h1>
+    <div class="mermaid">
+        %% Define a directed graph with grouped nodes
+        graph TD
+            B((Science))
+            D[Physics]
+            F[Biology]
+            
+            %% Group 1: Science Topics
+            subgraph S[Science Topics]
+                B --> D
+                B --> F
+            end
+
+            %% Group 2: Technology Topics
+            subgraph T[Technology Topics]
+                C[Technology] --> E[Computing]
+                C --> G[Engineering]
+                C --> B
+            end
+
+            %% Links between groups
+            A[Home] --> B
+            A --> C
+            
+            %% Clickable URLs for each node
+            click S "https://en.wikipedia.org/wiki/Home" "Go to Home" _blank
+            click A "https://en.wikipedia.org/wiki/Home" "Go to Home" _blank
+            click B "https://en.wikipedia.org/wiki/Science" "Go to Science" _blank
+            click C "https://en.wikipedia.org/wiki/Technology" "Go to Technology" _blank
+            click D "https://en.wikipedia.org/wiki/Physics" "Go to Physics" _blank
+            click E "https://en.wikipedia.org/wiki/Computing" "Go to Computing" _blank
+            click F "https://en.wikipedia.org/wiki/Biology" "Go to Biology" _blank
+            click G "https://en.wikipedia.org/wiki/Engineering" "Go to Engineering" _blank
+    </div>
+</body>
+</html>

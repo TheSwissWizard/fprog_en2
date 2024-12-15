@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <link rel='stylesheet' href='/styles.css'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>💡 Helium</title>
+    <script type='module'>
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; 
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+
+<body>
+    <h1>💡 Helium</h1>
+    <form id='createform' method='post' action='/he/save'>
+        <div>
+            <input type='text' name='idea' value='Fprog' placeholder='Your Idea'>
+        </div>
+        <div>
+            <textarea name='content' rows='12'placeholder='Describe it here'>
+Mein Lieblingsmodul! In Fprog lernen wir die funktionale Programmierung mit Haskell.
+            </textarea>
+        </div>
+        <div><button type='submit' name='save'>Save</button></div>
+    </form>
+    <h2>Graph</h2>
+    <div class='mermaid'>graph TD
+        FHNW
+        Fprog
+        Haskell
+        Conpr
+
+        FHNW --> Fprog
+        Fprog --> Fprog
+        Fprog --> Haskell
+        FHNW --> Conpr
+
+        click FHNW "/he/FHNW" "Go to FHNW" _blank
+        click Fprog "/he/Fprog" "Go to Fprog" _blank
+        click Haskell "/he/Haskell" "Go to Haskell" _blank
+        click Conpr "/he/Conpr" "Go to Conpr" _blank
+
+    </div>
+
+    <h2>Collection</h2>
+    <table>
+        <tr>
+            <th>Idea</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td><a href='/he/Conpr'>Conpr</a></td>
+            <td> <form method='post' action='/he/Conpr/delete'><button type='submit'>Delete</button></form></td>
+        </tr>
+        <tr>
+            <td><a href='/he/FHNW'>FHNW</a></td>
+            <td><form method='post' action='/he/FHNW/delete'><button type='submit'>Delete</button></form></td>
+        </tr>
+        <tr>
+            <td><a href='/he/Fprog'>Fprog</a></td>
+            <td><form method='post' action='/he/Fprog/delete'><button type='submit'>Delete</button></form></td>
+        </tr>
+        <tr>
+            <td><a href='/he/Haskell'>Haskell</a></td>
+            <td><form method='post' action='/he/Haskell/delete'><button type='submit'>Delete</button></form></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
